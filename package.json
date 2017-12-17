@@ -1,0 +1,11 @@
+{
+  "name": "zombie-slots",
+  "version": "1.0.0",
+  "description": "Slots-machine simulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artem Kozyrev",
+  "license": "ISC"
+}
