@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color:#444;
+}
+
+.icon {
+  width: 130px;
+  height: 150px;
+  /*animation: wiggle 0.4s linear infinite;*/
+}
+
+/*.slots {
+  width: 626px;
+  background-color: #333;
+  padding: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -320px;
+  margin-top: -220px;
+}*/
+
+.slots {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: yellow;
+}
+
+.window {
+  width: 776px;
+  position: relative;
+  align-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 475px;
+  padding: 0 3px;
+  background-color: red;
+}
+
+.outer-col {
+  width: 150px;
+  float: left;
+  margin: 0 2px;
+  background-color: #eee;
+}
+.col {
+  padding: 10px;
+  will-change: true;
+}
+
+.slots.spinning .outer-col:nth-of-type(2) .col {
+  animation-delay: 0.1s;
+}
+
+.slots.spinning .outer-col:nth-of-type(3) .col  {
+  animation-delay: 0.2s;
+}
+
+.slots.spinning .outer-col:nth-of-type(4) .col {
+  animation-delay: 0.3s;
+}
+
+.slots.spinning .outer-col:nth-of-type(5) .col {
+  animation-delay: 0.4s;
+}
+
+.slots.spinning .outer-col:nth-of-type(6) .col {
+  animation-delay: 0.5s;
+}
+
+.slots.spinning .col {
+  animation: scroll 3s cubic-bezier(.7,0,.7,1) 1, blur 3s cubic-bezier(.7,0,.7,1) 1;
+  animation-direction: reverse;
+}
+
+@keyframes scroll {
+  0% {transform: translate3d(0,0,0);}
+  10% {transform: translate3d(0,10px,0);}
+  90% {transform: translate3d(0,calc(-100% + 482px),0);}
+  100% {transform: translate3d(0,calc(-100% + 482px),0);}
+}
+
+@keyframes blur {
+  0% {filter: blur(0);}
+  10% {filter: blur(0);}
+  0% {filter: blur(0);}
+  30% {filter: blur(0);}
+  40% {filter: blur(4px);}
+  50% {filter: blur(6px);}
+  80% {filter: blur(0);}
+}
+
+@keyframes wiggle {
+  0% {transform: rotate(10deg);}
+  50% {transform: rotate(-10deg);}
+  100% {transform: rotate(10deg);}
+}
