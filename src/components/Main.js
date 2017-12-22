@@ -7,20 +7,20 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    var icons = [
+    let icons = [
       'apple','bananas','cherry','grapes','orange','pineapple','strawberry','watermelon'
     ];
 
-    var slots = document.querySelector('.slots');
-    var cols = document.querySelectorAll('.col');
-    for(var i in cols) {
+    let slots = document.querySelector('.slots');
+    let cols = document.querySelectorAll('.col');
+    for(let i in cols) {
       if (!cols.hasOwnProperty(i))
         continue;
-      var col = cols[i];
-      var str = '';
-      var firstThree = '';
-      for(var x = 0; x < 30; x++) {
-        var part = '<svg class="icon"><use xlink:href="#icon-'+icons[Math.floor(Math.random()*icons.length)]+'"></use></svg>';
+      let col = cols[i];
+      let str = '';
+      let firstThree = '';
+      for(let x = 0; x < 30; x++) {
+        let part = '<svg class="icon"><use xlink:href="#icon-'+icons[Math.floor(Math.random()*icons.length)]+'"></use></svg>';
         str += part
         if (x < 3) firstThree += part;
       }
@@ -30,41 +30,43 @@ class Main extends Component {
     document.querySelector('input').focus();
   }
 
-  spin = (elem) => {
-    if(!elem) return
-  elem.setAttribute('disabled', true);
-  slots.classList.toggle('spinning', true);
-  window.setTimeout(function() {
-    for(var i in cols) {
-      if (!cols.hasOwnProperty(i))
-        continue;
-      var col = cols[i];
+  spin = () => {
+    let slots = document.querySelector('.slots')
+    let cols = document.querySelectorAll('.col')
+    let button = document.getElementById('input')
+    button.setAttribute('disabled', true)
 
-      var icons = [
-        'apple','bananas','cherry','grapes','orange','pineapple','strawberry','watermelon'
-      ];
-      var results = [
-        icons[Math.floor(Math.random()*icons.length)],
-        icons[Math.floor(Math.random()*icons.length)],
-        icons[Math.floor(Math.random()*icons.length)]
+    slots.classList.toggle('spinning', true)
 
-      ];
-      console.log(results[1])
-      var icons = col.querySelectorAll('.icon use');
-      for(var x = 0; x < 3; x++) {
-        icons[x].setAttribute('xlink:href', '#icon-'+results[x]);
-        icons[(icons.length-3)+x].setAttribute('xlink:href', '#icon-'+results[x]);
+    setTimeout(function () {
+      for (let i in cols) {
+        if (!cols.hasOwnProperty(i)) continue
+        let col = cols[i]
+
+        let iconsNames = [
+          'apple','bananas','cherry','grapes','orange','pineapple','strawberry','watermelon'
+        ]
+
+        let results = [
+          iconsNames[Math.floor(Math.random()*iconsNames.length)],
+          iconsNames[Math.floor(Math.random()*iconsNames.length)],
+          iconsNames[Math.floor(Math.random()*iconsNames.length)]
+        ]
+
+        let icons = col.querySelectorAll('.icon use');
+        for(let x = 0; x < 3; x++) {
+          icons[x].setAttribute('xlink:href', '#icon-'+results[x]);
+          icons[(icons.length-3)+x].setAttribute('xlink:href', '#icon-'+results[x]);
+        }
       }
-    }
-  }, 1500);
+    }, 1500)
 
-  window.setTimeout(function() {
-    slots.classList.toggle('spinning', false);
-    elem.removeAttribute('disabled');
-    elem.focus();
-  }.bind(elem), 3500);
-}
-
+    setTimeout(function () {
+      slots.classList.toggle('spinning', false)
+      button.removeAttribute('disabled')
+    }, 3500
+    )
+  }
 
   render() {
     return (
@@ -86,7 +88,7 @@ class Main extends Component {
           <div className="col"></div>
         </div>
       </div>
-      <input id="input" type="button" onClick={console.log(this)} value="spin" />
+      <input id="input" type="button" onClick={this.spin} value="spin" />
     </div>
     )
   }
