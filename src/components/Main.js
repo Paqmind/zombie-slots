@@ -70,6 +70,7 @@ class Main extends Component {
 
   render() {
     return (
+      <div>
     <div className="slots">
       <div className="window">
         <div className="outer-col">
@@ -88,8 +89,9 @@ class Main extends Component {
           <div className="col"></div>
         </div>
       </div>
-      <input id="input" type="button" onClick={this.spin} value="spin" />
     </div>
+        <input id="input" type="button" onClick={this.spin} value="spin" />
+      </div>
     )
   }
 }
