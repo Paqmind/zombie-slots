@@ -6,15 +6,10 @@ body {
   background-color:#444;
 }
 
-.icon {
+.zombies {
   width: 130px;
   height: 150px;
   /*animation: wiggle 0.4s linear infinite;*/
-}
-
-.icon-watermelon {
-  width: 5px;
-  height: 10px;
 }
 
 /*.slots {
@@ -46,7 +41,7 @@ body {
   overflow: hidden;
   height: 474px;
   padding: 0 3px;
-  background-color: #fff;
+  background-color: #bbb;
 }
 
 .outer-col {
@@ -88,7 +83,7 @@ body {
 @keyframes scroll {
   0% {transform: translate3d(0,0,0);}
   10% {transform: translate3d(0,10px,0);}
-  90% {transform: translate3d(0,calc(-100% + 482px),0);}
+  /*90% {transform: translate3d(0,calc(-100% + 482px),0);}*/
   100% {transform: translate3d(0,calc(-100% + 482px),0);}
 }
 
