@@ -2,15 +2,11 @@
   box-sizing: border-box;
 }
 
-body {
-  /*background-color:#444;*/
-  background: url("../images/acid.jpg") 100% 100% no-repeat;
-  background-size: 100% 100%;
-}
-
-#app {
-  width: 100%;
-  height: 100%;
+html {
+  background-color: null !important;
+  background-position: null !important;
+  background-repeat: repeat !important;
+  background-image: url("../images/background.jpg") !important;
 }
 
 .zombies {
