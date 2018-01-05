@@ -28,12 +28,11 @@ html {
 }*/
 
 .slots {
-  width: 1000px;
+  width: 776px;
   height: 550px;
   margin: 0 auto;
   margin-top: 70px;
-  background-color: transparent;
-  padding-top: 35px;
+  background-color: yellow;
 }
 
 .window {
@@ -44,7 +43,7 @@ html {
   overflow: hidden;
   height: 474px;
   padding: 0 3px;
-  background-color: #bbb;
+  background-color: red;
 }
 
 .outer-col {
