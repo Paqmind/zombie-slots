@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import OptionalBar from './OptionalBar'
 import '../styles/svg_styles.css'
 import '../styles/styles.css'
 
@@ -75,7 +76,7 @@ class Main extends Component {
         <div className="outer-col"><div className="col"></div></div>
         <div className="outer-col"><div className="col"></div></div>
       </div>
-      <input id="input" type="button" onClick={this.spin} value="spin" />
+      <OptionalBar spin={this.spin}/>
     </div>
   }
 }
