@@ -35,7 +35,7 @@ html {
   background-color: yellow;
 }
 
-.window {
+.wrapper {
   width: 776px;
   position: relative;
   align-content: center;
@@ -55,6 +55,10 @@ html {
 .col {
   padding: 10px;
   will-change: true;
+}
+
+.optional-bar {
+  background-color: green;
 }
 
 .slots.spinning .outer-col:nth-of-type(2) .col {
