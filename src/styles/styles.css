@@ -15,6 +15,10 @@ html {
   /*animation: wiggle 0.4s linear infinite;*/
 }
 
+.anime {
+  animation: wiggle 0.4s linear infinite;
+}
+
 /*.slots {
   width: 626px;
   background-color: #333;

@@ -9,9 +9,32 @@ class Main extends Component {
     this.state = {
       bet: 1,
       coins: 100,
-      firstCol: []
+      result: []
     }
   }
+
+  /*winningCombs = () => {
+    let result = this.state.result
+    let firstLine = [result[0], result[3], result[6], result[9], result[12]]
+    let secondLine = [result[1], result[4], result[7], result[10], result[13]]
+    let thirdLine = [result[2], result[5], result[8], result[11], result[14]]
+    console.log(firstLine)
+    console.log(secondLine)
+    console.log(thirdLine)
+
+    if (firstLine[0] == firstLine[1] && firstLine[1] == firstLine[2]) {
+      let x = document.getElementsByTagName('svg')
+      x[1].classList.add('anime')
+      x[34].classList.add('anime')
+      x[67].classList.add('anime')
+      setTimeout(() => {
+        x[1].classList.remove('anime')
+        x[34].classList.remove('anime')
+        x[67].classList.remove('anime')
+      }, 3000)
+      this.setState({coins: 1000})
+    }
+  }*/
 
   spin = () => {
     let slots = document.querySelector('.slots'),
@@ -19,7 +42,7 @@ class Main extends Component {
       button = document.getElementById('input')
 
     this.setState({coins: this.state.coins - 1})
-    this.setState({firstCol: []})
+    this.setState({result: []})
 
     button.setAttribute('disabled', true)
     slots.classList.toggle('spinning', true)
@@ -38,7 +61,7 @@ class Main extends Component {
           iconsNames[Math.floor(Math.random()*iconsNames.length)]
         ]
 
-        this.setState({firstCol: this.state.firstCol.concat(results)})
+        this.setState({result: this.state.result.concat(results)})
 
 
         let icons = col.querySelectorAll('.zombies use')
