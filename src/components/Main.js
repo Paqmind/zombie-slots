@@ -6,12 +6,20 @@ import '../styles/styles.css'
 class Main extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      bet: 1,
+      coins: 100,
+      firstCol: []
+    }
   }
 
   spin = () => {
     let slots = document.querySelector('.slots'),
       cols = document.querySelectorAll('.col'),
       button = document.getElementById('input')
+
+    this.setState({coins: this.state.coins - 1})
+    this.setState({firstCol: []})
 
     button.setAttribute('disabled', true)
     slots.classList.toggle('spinning', true)
@@ -30,6 +38,9 @@ class Main extends Component {
           iconsNames[Math.floor(Math.random()*iconsNames.length)]
         ]
 
+        this.setState({firstCol: this.state.firstCol.concat(results)})
+
+
         let icons = col.querySelectorAll('.zombies use')
         for(let x = 0; x < 3; x++) {
           icons[x].setAttribute('xlink:href', '#zombie-'+results[x])
@@ -37,6 +48,8 @@ class Main extends Component {
         }
       }
     }, 1500)
+
+    //setTimeout(() => this.winningCombs(), 2000)
 
     setTimeout(() => {
         slots.classList.toggle('spinning', false)
@@ -75,7 +88,7 @@ class Main extends Component {
         <div className="outer-col"><div className="col"></div></div>
         <div className="outer-col"><div className="col"></div></div>
       </div>
-      <OptionalBar spin={this.spin}/>
+      <OptionalBar spin={this.spin} bet={this.state.bet} coins={this.state.coins}/>
     </div>
   }
 }

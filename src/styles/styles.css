@@ -46,6 +46,21 @@ html {
   background-color: red;
 }
 
+.optional-bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bet {
+  width: 100px;
+  background-color: pink;
+}
+
+.coins {
+  width: 100px;
+  background-color: blue;
+}
+
 .outer-col {
   width: 150px;
   float: left;
