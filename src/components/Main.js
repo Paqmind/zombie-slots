@@ -22,6 +22,7 @@ class Main extends Component {
     console.log(secondLine)
     console.log(thirdLine)
 
+
     if (firstLine[0] == firstLine[1] && firstLine[1] == firstLine[2]) {
       let x = document.getElementsByTagName('svg')
       x[1].classList.add('anime')
