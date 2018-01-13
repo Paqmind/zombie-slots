@@ -12,10 +12,9 @@ html {
 .zombies {
   width: 130px;
   height: 150px;
-  /*animation: wiggle 0.4s linear infinite;*/
 }
 
-.anime {
+.winning-animation {
   animation: wiggle 0.4s linear infinite;
 }
 

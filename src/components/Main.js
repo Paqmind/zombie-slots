@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import OptionalBar from './OptionalBar'
+import {winningLogic} from './WinningLogic'
+import {winningCoins} from './WinningLogic'
 import '../styles/svg_styles.css'
 import '../styles/styles.css'
 
@@ -13,29 +15,15 @@ class Main extends Component {
     }
   }
 
-  /*winningCombs = () => {
+  winningCombs = () => {
     let result = this.state.result
     let firstLine = [result[0], result[3], result[6], result[9], result[12]]
     let secondLine = [result[1], result[4], result[7], result[10], result[13]]
     let thirdLine = [result[2], result[5], result[8], result[11], result[14]]
-    console.log(firstLine)
-    console.log(secondLine)
-    console.log(thirdLine)
-
-
-    if (firstLine[0] == firstLine[1] && firstLine[1] == firstLine[2]) {
-      let x = document.getElementsByTagName('svg')
-      x[1].classList.add('anime')
-      x[34].classList.add('anime')
-      x[67].classList.add('anime')
-      setTimeout(() => {
-        x[1].classList.remove('anime')
-        x[34].classList.remove('anime')
-        x[67].classList.remove('anime')
-      }, 3000)
-      this.setState({coins: 1000})
-    }
-  }*/
+    winningLogic(firstLine, secondLine, thirdLine)
+    this.setState({coins: this.state.coins + winningCoins})
+    console.log(winningCoins)
+  }
 
   spin = () => {
     let slots = document.querySelector('.slots'),
@@ -73,7 +61,7 @@ class Main extends Component {
       }
     }, 1500)
 
-    //setTimeout(() => this.winningCombs(), 2000)
+    setTimeout(() => this.winningCombs(), 2000)
 
     setTimeout(() => {
         slots.classList.toggle('spinning', false)
