@@ -763,5 +763,81 @@ export function winningLogic(x1 = [], x2 = [], x3 = []) { // x1 == firstLine, x2
     icons[101].classList.add('winning-animation')
     icons[134].classList.add('winning-animation')
     winningCoins += 30
+  } else if (x2[0] == x1[1] && x1[1] == x2[1] && x2[1] == x3[1] && x3[1] == x2[2]) { //109
+    icons[2].classList.add('winning-animation')
+    icons[34].classList.add('winning-animation')
+    icons[35].classList.add('winning-animation')
+    icons[36].classList.add('winning-animation')
+    icons[68].classList.add('winning-animation')
+    winningCoins += 40
+  } else if (x2[1] == x1[2] && x1[2] == x2[2] && x2[2] == x3[2] && x3[2] == x2[3]) { //110
+    icons[35].classList.add('winning-animation')
+    icons[67].classList.add('winning-animation')
+    icons[68].classList.add('winning-animation')
+    icons[69].classList.add('winning-animation')
+    icons[101].classList.add('winning-animation')
+    winningCoins += 40
+  } else if (x2[2] == x1[3] && x1[3] == x2[3] && x2[3] == x3[3] && x3[3] == x2[4]) { //111
+    icons[68].classList.add('winning-animation')
+    icons[100].classList.add('winning-animation')
+    icons[101].classList.add('winning-animation')
+    icons[102].classList.add('winning-animation')
+    icons[134].classList.add('winning-animation')
+    winningCoins += 40
+  } else if (x1[0] == x2[1] && x2[1] == x3[2]) { //112
+    icons[1].classList.add('winning-animation')
+    icons[35].classList.add('winning-animation')
+    icons[69].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x1[1] == x2[2] && x2[2] == x3[3]) { //113
+    icons[34].classList.add('winning-animation')
+    icons[68].classList.add('winning-animation')
+    icons[102].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x1[2] == x2[3] && x2[3] == x3[4]) { //114
+    icons[67].classList.add('winning-animation')
+    icons[101].classList.add('winning-animation')
+    icons[135].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x3[0] == x2[1] && x2[1] == x1[2]) { //115
+    icons[3].classList.add('winning-animation')
+    icons[35].classList.add('winning-animation')
+    icons[67].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x3[1] == x2[2] && x2[2] == x1[3]) { //116
+    icons[36].classList.add('winning-animation')
+    icons[68].classList.add('winning-animation')
+    icons[100].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x3[2] == x2[3] && x2[3] == x1[4]) { //117
+    icons[69].classList.add('winning-animation')
+    icons[101].classList.add('winning-animation')
+    icons[133].classList.add('winning-animation')
+    winningCoins += 20
+  } else if (x1[0] == x2[0] && x2[0] == x3[0]) { //118
+    icons[1].classList.add('winning-animation')
+    icons[2].classList.add('winning-animation')
+    icons[3].classList.add('winning-animation')
+    winningCoins += 30
+  } else if (x1[1] == x2[1] && x2[1] == x3[1]) { //119
+    icons[34].classList.add('winning-animation')
+    icons[35].classList.add('winning-animation')
+    icons[36].classList.add('winning-animation')
+    winningCoins += 30
+  } else if (x1[2] == x2[2] && x2[2] == x3[2]) { //120
+    icons[67].classList.add('winning-animation')
+    icons[68].classList.add('winning-animation')
+    icons[69].classList.add('winning-animation')
+    winningCoins += 30
+  } else if (x1[3] == x2[3] && x2[3] == x3[3]) { //121
+    icons[100].classList.add('winning-animation')
+    icons[101].classList.add('winning-animation')
+    icons[102].classList.add('winning-animation')
+    winningCoins += 30
+  } else if (x1[4] == x2[4] && x2[4] == x3[4]) { //122
+    icons[133].classList.add('winning-animation')
+    icons[134].classList.add('winning-animation')
+    icons[135].classList.add('winning-animation')
+    winningCoins += 30
   }
 }
