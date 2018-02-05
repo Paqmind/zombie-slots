@@ -82,7 +82,7 @@ class Main extends Component {
           firstThree = ''
 
       for(let x = 0; x < 30; x++) {
-        let part = '<svg class="zombies"><use xlink:href="#zombie-'+icons[Math.floor(Math.random()*icons.length)]+'"></use></svg>'
+        let part = `<svg class="zombies"><use xlink:href="#zombie-${icons[Math.floor(Math.random()*icons.length)]}"></use></svg>`
         str += part
         if (x < 3) firstThree += part
       }
