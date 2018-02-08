@@ -11,13 +11,7 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cols: {
-        colOne: [],
-        colTwo: [],
-        colThree: [],
-        colFour: [],
-        colFive: []
-      },
+      cols: [[], [], [], [], []],
       bet: 1,
       coins: 100,
       result: []
@@ -45,13 +39,13 @@ class Main extends Component {
 
     setTimeout(() => {
         this.setState({
-          cols: {
-            colOne: setCol(icons, colLength),
-            colTwo: setCol(icons, colLength),
-            colThree: setCol(icons, colLength),
-            colFour: setCol(icons, colLength),
-            colFive: setCol(icons, colLength)
-          }
+          cols: [
+            setCol(icons, colLength),
+            setCol(icons, colLength),
+            setCol(icons, colLength),
+            setCol(icons, colLength),
+            setCol(icons, colLength)
+          ]
         })
     }, 1500)
 
@@ -67,13 +61,13 @@ class Main extends Component {
     let icons = ['one','two','three','four','five','six','seven','eight'],
         colLength = 3
     this.setState({
-      cols: {
-        colOne: setCol(icons, colLength),
-        colTwo: setCol(icons, colLength),
-        colThree: setCol(icons, colLength),
-        colFour: setCol(icons, colLength),
-        colFive: setCol(icons, colLength)
-      }
+      cols: [
+        setCol(icons, colLength),
+        setCol(icons, colLength),
+        setCol(icons, colLength),
+        setCol(icons, colLength),
+        setCol(icons, colLength)
+      ]
     })
   }
 
