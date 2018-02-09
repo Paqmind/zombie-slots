@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import OptionalBar from './OptionalBar'
 import {winningLogic} from './WinningLogic'
-import Slots from './Slots'
+import Slots from './slots/Slots'
 import setCol from '../helpers/setCol'
 import {winningCoins} from './WinningLogic'
 import '../styles/svg_styles.css'
