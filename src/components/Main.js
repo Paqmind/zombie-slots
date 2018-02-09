@@ -19,10 +19,10 @@ class Main extends Component {
   }
 
   winningCombs = () => {
-    let result = this.state.result
-    let firstLine = [result[0], result[3], result[6], result[9], result[12]]
-    let secondLine = [result[1], result[4], result[7], result[10], result[13]]
-    let thirdLine = [result[2], result[5], result[8], result[11], result[14]]
+    let result = this.state.cols
+    let firstLine = [result[0][0], result[1][0], result[2][0], result[3][0], result[4][0]]
+    let secondLine = [result[0][1], result[1][1], result[2][1], result[3][1], result[4][1]]
+    let thirdLine = [result[0][2], result[1][2], result[2][2], result[3][2], result[4][2]]
     winningLogic(firstLine, secondLine, thirdLine)
     this.setState({coins: this.state.coins + winningCoins})
     console.log(winningCoins)
@@ -48,6 +48,8 @@ class Main extends Component {
           ]
         })
     }, 1500)
+
+    setTimeout(() => this.winningCombs(), 1600)
 
     setTimeout(() => {
         slots.classList.toggle('spinning', false)
