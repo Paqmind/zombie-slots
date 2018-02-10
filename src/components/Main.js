@@ -49,7 +49,7 @@ class Main extends Component {
         })
     }, 1500)
 
-    setTimeout(() => this.winningCombs(), 1600)
+    setTimeout(() => this.winningCombs(), 2000)
 
     setTimeout(() => {
         slots.classList.toggle('spinning', false)

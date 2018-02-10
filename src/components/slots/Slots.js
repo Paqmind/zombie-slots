@@ -2,7 +2,7 @@ import React from 'react'
 import colsTemplate from './colsTemplate'
 
 const Slots = (props) => {
-  let cols = props.state.cols
+  let cols = props.state.cols.slice()
 
   for (let col in cols) {
     cols[col] = cols[col].concat(colsTemplate.concat(cols[col]))
