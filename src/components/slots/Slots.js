@@ -1,8 +1,10 @@
 import React from 'react'
 import colsTemplate from './colsTemplate'
+import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
   let cols = props.state.cols.slice()
+  let icons = props.state.result
 
   for (let col in cols) {
     cols[col] = cols[col].concat(colsTemplate.concat(cols[col]))
@@ -13,7 +15,7 @@ const Slots = (props) => {
       return <div className="outer-col" key={i}>
         <div className="col">{
           col.map((value, i) => {
-            return <svg className="zombies" key={i}>
+            return <svg className={svgClassNames()} key={i}>
               <use xlinkHref={`#zombie-${value}`}></use>
             </svg>
           })
