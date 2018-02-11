@@ -15,7 +15,7 @@ const Slots = (props) => {
       return <div className="outer-col" key={i}>
         <div className="col">{
           col.map((value, i) => {
-            return <svg className={svgClassNames()} key={i}>
+            return <svg className={svgClassNames(icons)} key={i}>
               <use xlinkHref={`#zombie-${value}`}></use>
             </svg>
           })
