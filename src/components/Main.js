@@ -25,7 +25,6 @@ class Main extends Component {
     let thirdLine = [result[0][2], result[1][2], result[2][2], result[3][2], result[4][2]]
     winningLogic(firstLine, secondLine, thirdLine)
     this.setState({coins: this.state.coins + winningCoins})
-    console.log(winningCoins)
   }
 
   spin = () => {
