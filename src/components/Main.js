@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import OptionalBar from './OptionalBar'
-import {winningLogic} from './WinningLogic'
+import winningLogic from './WinningLogic'
 import Slots from './slots/Slots'
 import setCol from '../helpers/setCol'
-import {winningCoins} from './WinningLogic'
 import '../styles/svg_styles.css'
 import '../styles/styles.css'
 
 class Main extends Component {
   constructor(props) {
     super(props)
+    this.icons = ['one','two','three','four','five','six','seven','eight']
+    this.colLength = 3
     this.state = {
       cols: [[], [], [], [], []],
       bet: 1,
@@ -18,37 +19,24 @@ class Main extends Component {
     }
   }
 
-  winningCombs = () => {
-    let result = this.state.cols
-    let firstLine = [result[0][0], result[1][0], result[2][0], result[3][0], result[4][0]]
-    let secondLine = [result[0][1], result[1][1], result[2][1], result[3][1], result[4][1]]
-    let thirdLine = [result[0][2], result[1][2], result[2][2], result[3][2], result[4][2]]
-    winningLogic(firstLine, secondLine, thirdLine)
-    this.setState({coins: this.state.coins + winningCoins})
-  }
-
   spin = () => {
-    let icons = ['one','two','three','four','five','six','seven','eight'],
-        colLength = 3
+    let cols = [setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength)]
+    let winningParams = winningLogic(cols)
+    console.log(cols)
+
+
     let slots = document.querySelector('.slots'),
-      button = document.getElementById('input')
+        button = document.getElementById('input')
 
     button.setAttribute('disabled', true)
     slots.classList.toggle('spinning', true)
 
     setTimeout(() => {
         this.setState({
-          cols: [
-            setCol(icons, colLength),
-            setCol(icons, colLength),
-            setCol(icons, colLength),
-            setCol(icons, colLength),
-            setCol(icons, colLength)
-          ]
+          cols,
+          result: winningParams.icons
         })
     }, 1500)
-
-    setTimeout(() => this.winningCombs(), 2000)
 
     setTimeout(() => {
         slots.classList.toggle('spinning', false)
@@ -59,15 +47,13 @@ class Main extends Component {
   }
 
   componentWillMount() {
-    let icons = ['one','two','three','four','five','six','seven','eight'],
-        colLength = 3
     this.setState({
       cols: [
-        setCol(icons, colLength),
-        setCol(icons, colLength),
-        setCol(icons, colLength),
-        setCol(icons, colLength),
-        setCol(icons, colLength)
+        setCol(this.icons, this.colLength),
+        setCol(this.icons, this.colLength),
+        setCol(this.icons, this.colLength),
+        setCol(this.icons, this.colLength),
+        setCol(this.icons, this.colLength)
       ]
     })
   }

@@ -1,5 +1,9 @@
-export default function winningLogic(x1 = [], x2 = [], x3 = []) { // x1 == firstLine, x2 == secondLine...
-  let params
+export default function winningLogic(cols) {
+
+  let x1 = [cols[0][0], cols[1][0], cols[2][0], cols[3][0], cols[4][0]],
+      x2 = [cols[0][1], cols[1][1], cols[2][1], cols[3][1], cols[4][1]],
+      x3 = [cols[0][2], cols[1][2], cols[2][2], cols[3][2], cols[4][2]],
+      params = {}
 
   if (x1[0] == x1[1] && x1[1] == x1[2] && x1[2] == x1[3] && x1[3] == x1[4]) { //1
     params = {
