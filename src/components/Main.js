@@ -67,7 +67,7 @@ class Main extends Component {
     const { spinning } = this.state
     return <div className={`slots ${spinning ? "spinning" : null}`}>
       <Slots state={this.state}/>
-      <OptionalBar spin={this.spin} bet={this.state.bet} coins={this.state.coins}/>
+      <OptionalBar spin={this.spin} state={this.state} />
     </div>
   }
 }
