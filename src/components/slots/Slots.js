@@ -3,8 +3,8 @@ import colsTemplate from './colsTemplate'
 import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
-  let cols = props.state.cols.slice()
-  let icons = props.state.result
+  let cols = props.state.cols.slice(),
+      icons = props.state.winningIcons
 
   for (let col in cols) {
     cols[col] = cols[col].concat(colsTemplate.concat(cols[col]))

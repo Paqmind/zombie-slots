@@ -15,15 +15,19 @@ class Main extends Component {
       cols: [[], [], [], [], []],
       bet: 1,
       coins: 100,
-      result: []
+      winningIcons: []
     }
   }
 
   spin = () => {
-    let cols = [setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength), setCol(this.icons, this.colLength)]
+    let cols = [
+      setCol(this.icons, this.colLength),
+      setCol(this.icons, this.colLength),
+      setCol(this.icons, this.colLength),
+      setCol(this.icons, this.colLength),
+      setCol(this.icons, this.colLength)
+    ]
     let winningParams = winningLogic(cols)
-    console.log(cols)
-
 
     let slots = document.querySelector('.slots'),
         button = document.getElementById('input')
@@ -34,7 +38,7 @@ class Main extends Component {
     setTimeout(() => {
         this.setState({
           cols,
-          result: winningParams.icons
+          winningIcons: winningParams.icons
         })
     }, 1500)
 
