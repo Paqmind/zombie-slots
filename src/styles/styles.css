@@ -113,8 +113,8 @@ html {
 
 @keyframes blur {
   0% {filter: blur(0);}
-  10% {filter: blur(0);}
-  0% {filter: blur(0);}
+  /*10% {filter: blur(0);}
+  0% {filter: blur(0);}*/
   30% {filter: blur(0);}
   40% {filter: blur(4px);}
   50% {filter: blur(6px);}
