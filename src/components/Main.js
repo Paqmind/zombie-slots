@@ -15,11 +15,18 @@ class Main extends Component {
       cols: [[], [], [], [], []],
       bet: 1,
       coins: 100,
-      winningIcons: []
+      winningIcons: [],
+      spinning: false,
+      btnDisabled: false
     }
   }
 
   spin = () => {
+    this.setState({
+      spinning: true,
+      btnDisabled: true
+    })
+
     let cols = [
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength),
@@ -29,12 +36,6 @@ class Main extends Component {
     ]
     let winningParams = winningLogic(cols)
 
-    let slots = document.querySelector('.slots'),
-        button = document.getElementById('input')
-
-    button.setAttribute('disabled', true)
-    slots.classList.toggle('spinning', true)
-
     setTimeout(() => {
         this.setState({
           cols,
@@ -43,11 +44,11 @@ class Main extends Component {
     }, 1500)
 
     setTimeout(() => {
-        slots.classList.toggle('spinning', false)
-        button.removeAttribute('disabled')
-        document.querySelector('input').focus()
-      }, 3500
-    )
+      this.setState({
+        spinning: false,
+        btnDisabled: false
+      })
+    }, 3500)
   }
 
   componentWillMount() {
@@ -63,7 +64,8 @@ class Main extends Component {
   }
 
   render() {
-    return <div className="slots">
+    const { spinning } = this.state
+    return <div className={`slots ${spinning ? "spinning" : null}`}>
       <Slots state={this.state}/>
       <OptionalBar spin={this.spin} bet={this.state.bet} coins={this.state.coins}/>
     </div>
