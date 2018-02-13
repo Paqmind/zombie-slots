@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import OptionalBar from './OptionalBar'
-import winningLogic from './WinningLogic'
+import winningDeterminant from '../helpers/winningDeterminant'
 import Slots from './slots/Slots'
 import setCol from '../helpers/setCol'
 import '../styles/svg_styles.css'
@@ -34,7 +34,7 @@ class Main extends Component {
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength)
     ]
-    let winningParams = winningLogic(cols)
+    let winningParams = winningDeterminant(cols)
 
     setTimeout(() => {
         this.setState({

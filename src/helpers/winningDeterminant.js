@@ -1,11 +1,66 @@
-export default function winningLogic(cols) {
+export default function winningDeterminant(cols) {
 
   let x1 = [cols[0][0], cols[1][0], cols[2][0], cols[3][0], cols[4][0]],
       x2 = [cols[0][1], cols[1][1], cols[2][1], cols[3][1], cols[4][1]],
       x3 = [cols[0][2], cols[1][2], cols[2][2], cols[3][2], cols[4][2]],
       params = {}
 
-  if (x1[0] == x1[1] && x1[1] == x1[2] && x1[2] == x1[3] && x1[3] == x1[4]) { //1
+  if (x1[0] == x2[1] && x2[1] == x3[2]) { //112
+    params = {
+      icons: [1, 35, 69],
+      coins: 20
+    }
+  } else if (x1[1] == x2[2] && x2[2] == x3[3]) { //113
+    params = {
+      icons: [34, 68, 102],
+      coins: 20
+    }
+  } else if (x1[2] == x2[3] && x2[3] == x3[4]) { //114
+    params = {
+      icons: [67, 101, 135],
+      coins: 20
+    }
+  } else if (x3[0] == x2[1] && x2[1] == x1[2]) { //115
+    params = {
+      icons: [3, 35, 67],
+      coins: 20
+    }
+  } else if (x3[1] == x2[2] && x2[2] == x1[3]) { //116
+    params = {
+      icons: [36, 68, 100],
+      coins: 20
+    }
+  } else if (x3[2] == x2[3] && x2[3] == x1[4]) { //117
+    params = {
+      icons: [69, 101, 133],
+      coins: 20
+    }
+  } else if (x1[0] == x2[0] && x2[0] == x3[0]) { //118
+    params = {
+      icons: [1, 2, 3],
+      coins: 20
+    }
+  } else if (x1[1] == x2[1] && x2[1] == x3[1]) { //119
+    params = {
+      icons: [34, 35, 36],
+      coins: 30
+    }
+  } else if (x1[2] == x2[2] && x2[2] == x3[2]) { //120
+    params = {
+      icons: [67, 68, 69],
+      coins: 30
+    }
+  } else if (x1[3] == x2[3] && x2[3] == x3[3]) { //121
+    params = {
+      icons: [100, 101, 102],
+      coins: 30
+    }
+  } else if (x1[4] == x2[4] && x2[4] == x3[4]) { //122
+    params = {
+      icons: [133, 134, 135],
+      coins: 30
+    }
+  } else if (x1[0] == x1[1] && x1[1] == x1[2] && x1[2] == x1[3] && x1[3] == x1[4]) { //1
     params = {
       icons: [1, 34, 67, 100, 133],
       coins: 50
@@ -559,61 +614,6 @@ export default function winningLogic(cols) {
     params = {
       icons: [68, 100, 101, 102, 134],
       coins: 40
-    }
-  } else if (x1[0] == x2[1] && x2[1] == x3[2]) { //112
-    params = {
-      icons: [1, 35, 69],
-      coins: 20
-    }
-  } else if (x1[1] == x2[2] && x2[2] == x3[3]) { //113
-    params = {
-      icons: [34, 68, 102],
-      coins: 20
-    }
-  } else if (x1[2] == x2[3] && x2[3] == x3[4]) { //114
-    params = {
-      icons: [67, 101, 135],
-      coins: 20
-    }
-  } else if (x3[0] == x2[1] && x2[1] == x1[2]) { //115
-    params = {
-      icons: [3, 35, 67],
-      coins: 20
-    }
-  } else if (x3[1] == x2[2] && x2[2] == x1[3]) { //116
-    params = {
-      icons: [36, 68, 100],
-      coins: 20
-    }
-  } else if (x3[2] == x2[3] && x2[3] == x1[4]) { //117
-    params = {
-      icons: [69, 101, 133],
-      coins: 20
-    }
-  } else if (x1[0] == x2[0] && x2[0] == x3[0]) { //118
-    params = {
-      icons: [1, 2, 3],
-      coins: 20
-    }
-  } else if (x1[1] == x2[1] && x2[1] == x3[1]) { //119
-    params = {
-      icons: [34, 35, 36],
-      coins: 30
-    }
-  } else if (x1[2] == x2[2] && x2[2] == x3[2]) { //120
-    params = {
-      icons: [67, 68, 69],
-      coins: 30
-    }
-  } else if (x1[3] == x2[3] && x2[3] == x3[3]) { //121
-    params = {
-      icons: [100, 101, 102],
-      coins: 30
-    }
-  } else if (x1[4] == x2[4] && x2[4] == x3[4]) { //122
-    params = {
-      icons: [133, 134, 135],
-      coins: 30
     }
   } else {
     params = {
