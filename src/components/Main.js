@@ -13,7 +13,7 @@ class Main extends Component {
     this.colLength = 3
     this.state = {
       bet: 1,
-      coins: 100,
+      totalCoins: 100,
       winningIcons: [],
       spinning: false,
       btnDisabled: false,
@@ -25,7 +25,7 @@ class Main extends Component {
     this.setState((prevState) => ({
       spinning: true,
       btnDisabled: true,
-      coins: prevState.coins - 1
+      totalCoins: prevState.totalCoins - 1
     }))
 
     let cols = [
@@ -48,7 +48,7 @@ class Main extends Component {
       this.setState((prevState) => ({
         spinning: false,
         btnDisabled: false,
-        coins: prevState.coins + winningParams.coins
+        totalCoins: prevState.totalCoins + winningParams.coins
       }))
     }, 3500)
   }
