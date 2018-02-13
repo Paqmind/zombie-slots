@@ -3,23 +3,23 @@ import colsTemplate from './colsTemplate'
 import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
-  let cols = props.state.cols.slice(),
-    icons = props.state.winningIcons
+  let { cols, winningIcons, winningCoins, isCoinsCounterOpen } = props.state
+  let slotsCols = cols.slice()
 
-  for (let col in cols) {
-    cols[col] = cols[col].concat(colsTemplate.concat(cols[col]))
+  for (let col in slotsCols) {
+    slotsCols[col] = slotsCols[col].concat(colsTemplate.concat(slotsCols[col]))
   }
 
   return <div className="wrapper">
-    <div className="show-coins-counter">
-      <div className="coins-amount">200</div>
+    <div className={isCoinsCounterOpen ? "show-coins-counter" : "hide-coins-counter"}>
+      <div className="coins-amount">{winningCoins}</div>
     </div>
     {
-      cols.map((col, i) => {
+      slotsCols.map((col, i) => {
         return <div className="outer-col" key={i}>
           <div className="col">{
             col.map((value, i) => {
-              return <svg className={svgClassNames(icons)} key={i}>
+              return <svg className={svgClassNames(winningIcons)} key={i}>
                 <use xlinkHref={`#zombie-${value}`}></use>
               </svg>
             })

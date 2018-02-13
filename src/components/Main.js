@@ -14,7 +14,9 @@ class Main extends Component {
     this.state = {
       bet: 1,
       totalCoins: 100,
+      winningCoins: 0,
       winningIcons: [],
+      isCoinsCounterOpen: false,
       spinning: false,
       btnDisabled: false,
       cols: [[], [], [], [], []]
@@ -25,7 +27,9 @@ class Main extends Component {
     this.setState((prevState) => ({
       spinning: true,
       btnDisabled: true,
-      totalCoins: prevState.totalCoins - 1
+      totalCoins: prevState.totalCoins - 1,
+      isCoinsCounterOpen: false,
+      winningCoins: 0
     }))
 
     let cols = [
@@ -40,17 +44,31 @@ class Main extends Component {
     setTimeout(() => {
       this.setState({
         cols,
-        winningIcons: winningParams.icons
+        winningIcons: winningParams.icons,
+        currentWinQuantity: winningParams.coins
       })
     }, 1500)
 
     setTimeout(() => {
+      this.countCoins(winningParams.coins)
       this.setState((prevState) => ({
         spinning: false,
         btnDisabled: false,
         totalCoins: prevState.totalCoins + winningParams.coins
       }))
     }, 3500)
+  }
+
+  countCoins = (currentWinQuantity) => {
+    if (currentWinQuantity == 0) return
+
+    let interval = setInterval(() => {
+      this.setState((prevState) => ({
+        isCoinsCounterOpen: true,
+        winningCoins: prevState.winningCoins + 1
+      }))
+      this.state.winningCoins >= currentWinQuantity ? clearInterval(interval) : null
+    }, 60)
   }
 
   componentWillMount() {
