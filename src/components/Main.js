@@ -12,20 +12,21 @@ class Main extends Component {
     this.icons = ['one','two','three','four','five','six','seven','eight']
     this.colLength = 3
     this.state = {
-      cols: [[], [], [], [], []],
       bet: 1,
       coins: 100,
       winningIcons: [],
       spinning: false,
-      btnDisabled: false
+      btnDisabled: false,
+      cols: [[], [], [], [], []]
     }
   }
 
   spin = () => {
-    this.setState({
+    this.setState((prevState) => ({
       spinning: true,
-      btnDisabled: true
-    })
+      btnDisabled: true,
+      coins: prevState.coins - 1
+    }))
 
     let cols = [
       setCol(this.icons, this.colLength),
@@ -33,21 +34,22 @@ class Main extends Component {
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength)
-    ]
-    let winningParams = winningDeterminant(cols)
-
-    setTimeout(() => {
-        this.setState({
-          cols,
-          winningIcons: winningParams.icons
-        })
-    }, 1500)
+    ],
+      winningParams = winningDeterminant(cols)
 
     setTimeout(() => {
       this.setState({
-        spinning: false,
-        btnDisabled: false
+        cols,
+        winningIcons: winningParams.icons
       })
+    }, 1500)
+
+    setTimeout(() => {
+      this.setState((prevState) => ({
+        spinning: false,
+        btnDisabled: false,
+        coins: prevState.coins + winningParams.coins
+      }))
     }, 3500)
   }
 
