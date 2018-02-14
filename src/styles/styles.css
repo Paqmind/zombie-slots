@@ -18,9 +18,14 @@ html {
   animation: wiggle 0.4s linear infinite;
 }
 
+.container {
+  width: 776px;
+  margin: 0 auto;
+}
+
 .slots {
   width: 776px;
-  height: 550px;
+  height: 474px;
   margin: 0 auto;
   margin-top: 70px;
   background-color: yellow;
