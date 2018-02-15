@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   background-color: null !important;
   background-position: null !important;
@@ -21,8 +27,26 @@ html {
 }
 
 .container {
-  width: 776px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.aside {
+  width: 475px;
+  height: 100px;
+  margin-top: 70px;
+  border: 3px solid #0d9cad;
+  background-color: transparent;
+}
+
+.slots {
+  width: 776px;
+  height: 494px;
+  margin-top: 70px;
+  background-color: yellow;
   box-shadow: 0 0 5px #fff,
     0 0 10px #fff,
     0 0 20px #0d9cad,
@@ -30,14 +54,6 @@ html {
     0 0 40px #0d9cad,
     0 0 55px #0d9cad,
     0 0 75px #0d9cad;;
-}
-
-.slots {
-  width: 776px;
-  height: 474px;
-  margin: 0 auto;
-  margin-top: 70px;
-  background-color: yellow;
 }
 
 .wrapper {
@@ -85,6 +101,8 @@ html {
 
 .optional-bar {
   display: flex;
+  height: 20px;
+  background-color: green;
   justify-content: space-around;
 }
 
@@ -107,10 +125,6 @@ html {
 .col {
   padding: 10px;
   will-change: true;
-}
-
-.optional-bar {
-  background-color: green;
 }
 
 .slots.spinning .outer-col:nth-of-type(2) .col {

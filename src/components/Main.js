@@ -90,6 +90,7 @@ class Main extends Component {
         <Slots state={this.state}/>
         <OptionalBar spin={this.spin} state={this.state} />
       </div>
+      <div className="aside"></div>
     </div>
   }
 }
