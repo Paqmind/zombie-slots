@@ -90,7 +90,7 @@ class Main extends Component {
         <Slots state={this.state}/>
         <OptionalBar spin={this.spin} state={this.state} />
       </div>
-      <div className="aside"><h1>Zombie Slots</h1></div>
+      <div className="aside"><h1>Zombie Reels</h1></div>
     </div>
   }
 }
