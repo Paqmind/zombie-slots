@@ -132,7 +132,7 @@ export default function winningDeterminant(cols) {
     }
   } else if (x1[0] == x2[1] && x2[1] == x1[2] && x1[2] == x2[3] && x2[3] == x1[4]) { //15
     params = {
-      icons: [1, 35, 67, 101, 134],
+      icons: [1, 35, 67, 101, 133],
       coins: 30
     }
   } else if (x1[0] == x2[1] && x2[1] == x1[2] && x1[2] == x2[3] && x2[3] == x2[4]) { //16
