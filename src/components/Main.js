@@ -53,8 +53,7 @@ class Main extends Component {
       this.countCoins(winningParams.coins)
       this.setState((prevState) => ({
         spinning: false,
-        btnDisabled: false,
-        totalCoins: prevState.totalCoins + winningParams.coins
+        btnDisabled: false
       }))
     }, 3500)
   }
@@ -62,10 +61,11 @@ class Main extends Component {
   countCoins = (currentWinQuantity) => {
     if (currentWinQuantity == 0) return
 
+    this.setState({isCoinsCounterOpen: true})
     let interval = setInterval(() => {
       this.setState((prevState) => ({
-        isCoinsCounterOpen: true,
-        winningCoins: prevState.winningCoins + 1
+        winningCoins: prevState.winningCoins + 1,
+        totalCoins: prevState.totalCoins + 1
       }))
       this.state.winningCoins >= currentWinQuantity ? clearInterval(interval) : null
     }, 60)
