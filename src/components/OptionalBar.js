@@ -1,10 +1,11 @@
 import React from 'react'
+import Button from './Button'
 
 const OptionalBar = (props) => {
   const { bet, totalCoins, btnDisabled } = props.state
   return <div className="optional-bar">
     <span className="bet">{bet}</span>
-    <input id="input" type="button" onClick={props.spin} value="spin" disabled={btnDisabled} />
+    <Button spin={props.spin} btnDisabled={btnDisabled} />
     <span className="coins">{totalCoins}</span>
   </div>
 }

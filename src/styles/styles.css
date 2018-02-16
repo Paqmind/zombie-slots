@@ -91,6 +91,30 @@ html {
   display: none;
 }
 
+.button {
+  position: relative;
+  z-index: 1;
+  outline: none;
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background: transparent;
+  border: 15px solid #dcdcdc;
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px #00BFFF,
+  inset 0 0 10px #00BFFF,
+  inset 0 0 20px #00BFFF,
+  inset 0 0 30px #00BFFF,
+  inset 0 0 40px #00BFFF,
+  0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 20px #00BFFF,
+  0 0 30px #00BFFF,
+  0 0 40px #00BFFF,
+  0 0 55px #00BFFF,
+  0 0 75px #00BFFF;;
+}
+
 .optional-bar {
   display: flex;
   height: 20px;
