@@ -36,7 +36,7 @@ html {
 
 .slots {
   width: 776px;
-  height: 494px;
+  height: 474px;
   margin-top: 70px;
   background-color: yellow;
   box-shadow: 0 0 5px #fff,
@@ -142,20 +142,30 @@ html {
 }
 
 .optional-bar {
+  margin-top: 5px;
   display: flex;
-  height: 20px;
-  background-color: green;
+  height: 60px;
+  background-color: transparent;
   justify-content: space-around;
 }
 
-.bet {
-  width: 100px;
-  background-color: pink;
+.stats {
+  width: 200px;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 20px #00BFFF,
+  0 0 30px #00BFFF,
+  0 0 40px #00BFFF,
+  0 0 55px #00BFFF,
+  0 0 75px #00BFFF;;
 }
 
-.coins {
-  width: 100px;
-  background-color: blue;
+.value {
+  padding-top: 5px;
+  font-size: 1.5em;
 }
 
 .outer-col {

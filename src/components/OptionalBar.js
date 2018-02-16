@@ -4,9 +4,15 @@ import Button from './Button'
 const OptionalBar = (props) => {
   const { bet, totalCoins, btnDisabled } = props.state
   return <div className="optional-bar">
-    <span className="bet">{bet}</span>
+    <div className="stats">
+      <div className="title">BET</div>
+      <div className="value">{bet}</div>
+    </div>
     <Button spin={props.spin} btnDisabled={btnDisabled} />
-    <span className="coins">{totalCoins}</span>
+    <div className="stats">
+      <div className="title">COINS</div>
+      <div className="value">{totalCoins}</div>
+    </div>
   </div>
 }
 
