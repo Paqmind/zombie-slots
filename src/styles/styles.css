@@ -64,8 +64,7 @@ html {
     0 0 20px #5D1484,
     0 0 30px #5D1484,
     0 0 40px #5D1484,
-    0 0 55px #5D1484,
-    0 0 75px #5D1484;;
+    0 0 55px #5D1484;
 }
 
 .wrapper {
@@ -131,8 +130,7 @@ html {
   0 0 10px #fff,
   0 0 20px #483D8B,
   0 0 30px #483D8B,
-  0 0 40px #483D8B,
-  0 0 55px #483D8B;
+  0 0 40px #483D8B;
 }
 
 .btn-disabled {
@@ -194,6 +192,7 @@ html {
   margin: 0 2px;
   background-color: #eee;
 }
+
 .col {
   padding: 10px;
   will-change: true;
