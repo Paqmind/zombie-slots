@@ -33,14 +33,24 @@ html {
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   width: 776px;
-  height: 110px;
-  font-size: 110px;
-  font-family: Arial;
+  height: 100px;
+  font-size: 100px;
+  font-family: 'Butcherman';
   color: #fff;
+  line-height: 115%;
   text-align: center;
   background: transparent;
   margin: 0 auto;
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 20px #5D1484,
+  0 0 30px #5D1484,
+  0 0 40px #5D1484,
+  0 0 55px #5D1484,
+  0 0 75px #5D1484;;
 }
 
 .slots {
@@ -50,11 +60,11 @@ html {
   background-color: yellow;
   box-shadow: 0 0 5px #fff,
     0 0 10px #fff,
-    0 0 20px #0d9cad,
-    0 0 30px #0d9cad,
-    0 0 40px #0d9cad,
-    0 0 55px #0d9cad,
-    0 0 75px #0d9cad;;
+    0 0 20px #5D1484,
+    0 0 30px #5D1484,
+    0 0 40px #5D1484,
+    0 0 55px #5D1484,
+    0 0 75px #5D1484;;
 }
 
 .wrapper {
