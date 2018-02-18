@@ -16,16 +16,6 @@ html {
   background-size: cover;
 }
 
-.zombies {
-  width: 130px;
-  height: 150px;
-  /*filter: drop-shadow(2px 1px 0 black);*/
-}
-
-.winning-animation {
-  animation: wiggle 0.4s linear infinite;
-}
-
 .container {
   width: 100%;
   height: 100%;
@@ -60,11 +50,10 @@ html {
   margin: 0 auto;
   background-color: yellow;
   box-shadow: 0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #5D1484,
-    0 0 30px #5D1484,
-    0 0 40px #5D1484,
-    0 0 55px #5D1484;
+  0 0 20px #5D1484,
+  0 0 30px #5D1484,
+  0 0 40px #5D1484,
+  0 0 55px #5D1484;
 }
 
 .wrapper {
@@ -75,7 +64,38 @@ html {
   overflow: hidden;
   height: 474px;
   padding: 0 3px;
-  background-color: red;
+  background-color: #5D1484;
+}
+
+.outer-col {
+  width: 150px;
+  float: left;
+  margin: 0 2px;
+  background: url("../images/col-backgtound.jpg");
+}
+
+.col {
+  padding: 10px;
+  will-change: true;
+}
+
+.zombies {
+  width: 130px;
+  height: 150px;
+  filter: drop-shadow(1px 1px 0 #fff)
+    drop-shadow(-1px -1px 0 #fff);
+}
+
+.optional-bar {
+  margin-top: 5px;
+  display: flex;
+  height: 60px;
+  background-color: transparent;
+  justify-content: space-around;
+}
+
+.winning-animation {
+  animation: wiggle 0.4s linear infinite;
 }
 
 .show-coins-counter {
@@ -158,14 +178,6 @@ html {
   0 0 75px #ff0080;;
 }
 
-.optional-bar {
-  margin-top: 5px;
-  display: flex;
-  height: 60px;
-  background-color: transparent;
-  justify-content: space-around;
-}
-
 .stats {
   width: 200px;
   color: #fff;
@@ -184,18 +196,6 @@ html {
 .value {
   padding-top: 5px;
   font-size: 1.5em;
-}
-
-.outer-col {
-  width: 150px;
-  float: left;
-  margin: 0 2px;
-  background-color: #eee;
-}
-
-.col {
-  padding: 10px;
-  will-change: true;
 }
 
 .slots.spinning .outer-col:nth-of-type(2) .col {
