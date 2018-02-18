@@ -27,7 +27,7 @@ class Main extends Component {
     this.setState((prevState) => ({
       spinning: true,
       btnDisabled: true,
-      totalCoins: prevState.totalCoins - 1,
+      totalCoins: prevState.totalCoins - prevState.bet,
       isCoinsCounterOpen: false,
       winningCoins: 0
     }))
@@ -44,8 +44,7 @@ class Main extends Component {
     setTimeout(() => {
       this.setState({
         cols,
-        winningIcons: winningParams.icons,
-        currentWinQuantity: winningParams.coins
+        winningIcons: winningParams.icons
       })
     }, 1500)
 
