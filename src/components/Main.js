@@ -86,6 +86,7 @@ class Main extends Component {
   render() {
     const { spinning } = this.state
     return <div className="container">
+      <div className="header">Zombie Reels</div>
       <div className={`slots ${spinning ? "spinning" : null}`}>
         <Slots state={this.state}/>
         <OptionalBar spin={this.spin} state={this.state} />
