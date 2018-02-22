@@ -12,14 +12,14 @@ class Main extends Component {
     this.icons = ['one','two','three','four','five','six','seven','eight']
     this.colLength = 3
     this.state = {
-      bet: 1,
-      totalCoins: 100,
-      winningCoins: 0,
-      winningIcons: [],
-      isCoinsCounterOpen: false,
-      spinning: false,
-      btnDisabled: false,
-      cols: [[], [], [], [], []]
+      bet: 1,                       // current bet value
+      totalCoins: 100,              // total number of coins per game
+      winningCoins: 0,              // the number of current winning coins
+      winningIcons: [],             // array of current winning icons
+      isCoinsCounterOpen: false,    // show or hide coins counter after coins winning
+      spinning: false,              // start/stop spin the icons
+      btnDisabled: false,           // disabling button while slots spinning
+      cols: [[], [], [], [], []]    // array of icons that are displayed on the screen
     }
   }
 
@@ -32,19 +32,19 @@ class Main extends Component {
       winningCoins: 0
     }))
 
-    let cols = [
-      setCol(this.icons, this.colLength),
+    let cols = [                                // randomly generate new icons
+      setCol(this.icons, this.colLength),       // which will be displayed next
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength),
       setCol(this.icons, this.colLength)
     ],
-      winningParams = winningDeterminant(cols)
+      winningParams = winningDeterminant(cols)  // check new icons position for winning combs
 
     setTimeout(() => {
       this.setState({
         cols,
-        winningIcons: winningParams.icons
+        winningIcons: winningParams.icons       // display new icons on the screen
       })
     }, 1500)
 
