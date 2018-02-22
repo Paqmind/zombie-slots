@@ -1,11 +1,14 @@
 {
   "name": "zombie-slots",
+  "homepage": "https://datexgo.github.io/zombie-slots",
   "version": "1.0.0",
   "description": "Slots-machine simulator",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base ./public --open",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Artem Kozyrev",
   "license": "ISC",
