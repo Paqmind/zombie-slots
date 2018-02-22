@@ -4,10 +4,10 @@ import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
   let { cols, winningIcons, winningCoins, isCoinsCounterOpen } = props.state
-  let slotsCols = cols.slice()
+  let displayedCols = cols.slice()
 
-  for (let col in slotsCols) {
-    slotsCols[col] = slotsCols[col].concat(colsTemplate.concat(slotsCols[col]))
+  for (let col in displayedCols) { // replacing first three and last three icons in template with new ones from state
+    displayedCols[col] = displayedCols[col].concat(colsTemplate.concat(displayedCols[col]))
   }
 
   return <div className="wrapper">
@@ -15,7 +15,7 @@ const Slots = (props) => {
       <div className="coins-amount">{winningCoins}</div>
     </div>
     {
-      slotsCols.map((col, i) => {
+      displayedCols.map((col, i) => {
         return <div className="outer-col" key={i}>
           <div className="col">{
             col.map((value, i) => {
