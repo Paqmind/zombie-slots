@@ -2,7 +2,7 @@
 ### Demo
 https://datexgo.github.io/zombie-slots/
 
-![ScreenShot](/src/images/prewiev.png?raw=true)
+![ScreenShot](/src/images/preview.png?raw=true)
 
 ### Key tools:
 * **React.js**
