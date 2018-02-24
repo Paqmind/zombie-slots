@@ -4,11 +4,7 @@ import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
   let { cols, winningIcons, winningCoins, isCoinsCounterOpen } = props.state
-  let displayedCols = cols.slice()
-
-  for (let col in displayedCols) { // replacing first three and last three icons in template with new ones from state
-    displayedCols[col] = displayedCols[col].concat(colsTemplate.concat(displayedCols[col]))
-  }
+  let displayedCols = cols.map(col => col.concat(colsTemplate.concat(col)))
 
   return <div className="wrapper">
     <div className={isCoinsCounterOpen ? "show-coins-counter" : "hide-coins-counter"}>
