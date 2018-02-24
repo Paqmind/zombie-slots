@@ -23,12 +23,12 @@ class Main extends Component {
   }
 
   spin = () => {
-    this.setState((prevState) => ({
+    this.setState({
       spinning: true,
-      totalCoins: prevState.totalCoins - prevState.bet,
+      totalCoins: this.state.totalCoins - this.state.bet,
       isCoinsCounterOpen: false,
       winningCoins: 0
-    }))
+    })
 
     let cols = [                                // randomly generate new icons
       makeColumn(this.icons, this.colLength),       // which will be displayed next
@@ -48,9 +48,9 @@ class Main extends Component {
 
     setTimeout(() => {
       this.countCoins(winningParams.coins)
-      this.setState((prevState) => ({
+      this.setState({
         spinning: false
-      }))
+      })
     }, 3500)
   }
 
@@ -59,10 +59,10 @@ class Main extends Component {
 
     this.setState({isCoinsCounterOpen: true})
     let interval = setInterval(() => {
-      this.setState((prevState) => ({
-        winningCoins: prevState.winningCoins + 1,
-        totalCoins: prevState.totalCoins + 1
-      }))
+      this.setState({
+        winningCoins: this.state.winningCoins + 1,
+        totalCoins: this.state.totalCoins + 1
+      })
       this.state.winningCoins >= currentWinQuantity ? clearInterval(interval) : null
     }, 60)
   }
