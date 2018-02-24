@@ -63,7 +63,10 @@ class Main extends Component {
         winningCoins: this.state.winningCoins + 1,
         totalCoins: this.state.totalCoins + 1
       })
-      this.state.winningCoins >= currentWinQuantity ? clearInterval(interval) : null
+
+    if (this.state.winningCoins >= currentWinQuantity)
+      clearInterval(interval)
+
     }, 60)
   }
 
