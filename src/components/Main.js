@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import OptionalBar from './OptionalBar'
 import winningDeterminant from '../helpers/winningDeterminant'
 import Slots from './slots/Slots'
-import setCol from '../helpers/setCol'
+import makeColumn from '../helpers/makeColumn'
 import '../styles/svg_styles.css'
 import '../styles/styles.css'
 
@@ -33,11 +33,11 @@ class Main extends Component {
     }))
 
     let cols = [                                // randomly generate new icons
-      setCol(this.icons, this.colLength),       // which will be displayed next
-      setCol(this.icons, this.colLength),
-      setCol(this.icons, this.colLength),
-      setCol(this.icons, this.colLength),
-      setCol(this.icons, this.colLength)
+      makeColumn(this.icons, this.colLength),       // which will be displayed next
+      makeColumn(this.icons, this.colLength),
+      makeColumn(this.icons, this.colLength),
+      makeColumn(this.icons, this.colLength),
+      makeColumn(this.icons, this.colLength)
     ],
       winningParams = winningDeterminant(cols)  // check new icons position for winning combs
 
@@ -73,11 +73,11 @@ class Main extends Component {
   componentWillMount() {
     this.setState({
       cols: [
-        setCol(this.icons, this.colLength),
-        setCol(this.icons, this.colLength),
-        setCol(this.icons, this.colLength),
-        setCol(this.icons, this.colLength),
-        setCol(this.icons, this.colLength)
+        makeColumn(this.icons, this.colLength),
+        makeColumn(this.icons, this.colLength),
+        makeColumn(this.icons, this.colLength),
+        makeColumn(this.icons, this.colLength),
+        makeColumn(this.icons, this.colLength)
       ]
     })
   }
