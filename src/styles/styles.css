@@ -19,13 +19,13 @@ html {
 
 #app {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   width: 776px;
-  height: 634px;
-  margin: 0 auto;
-  align-items: center;
+  height: 654px;
 }
 
 .header {
@@ -40,7 +40,6 @@ html {
   line-height: 115%;
   text-align: center;
   background: transparent;
-  margin: 0 auto;
   text-shadow: 0 0 5px #fff,
   0 0 10px #fff,
   0 0 20px #5D1484,
@@ -95,7 +94,7 @@ html {
 .optional-bar {
   margin-top: 5px;
   display: flex;
-  height: 60px;
+  height: 80px;
   background-color: transparent;
   justify-content: space-around;
 }
