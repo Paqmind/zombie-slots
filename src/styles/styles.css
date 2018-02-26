@@ -208,8 +208,9 @@ i {
   border: solid #fff;
   border-width: 0 5px 5px 0;
   display: inline-block;
+  cursor: pointer;
   padding: 5px;
-}
+  }
 
 .right {
   transform: rotate(-45deg);

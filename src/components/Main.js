@@ -57,17 +57,15 @@ class Main extends Component {
   }
 
   increaseBet = () => {
-    this.setState({bet: this.state.bet + 1})
-    if (this.state.bet >= this.maxBet) {
-      this.setState({bet: 1})
-    }
+    this.state.bet >= this.maxBet
+      ? this.setState({bet: 1})
+      : this.setState({bet: this.state.bet + 1})
   }
 
   decreaseBet = () => {
-    this.setState({bet: this.state.bet - 1})
-    if (this.state.bet <= this.minBet) {
-      this.setState({bet: 10})
-    }
+    this.state.bet <= this.minBet
+      ? this.setState({bet: 10})
+      : this.setState({bet: this.state.bet - 1})
   }
 
   countCoins = (currentWinQuantity) => {
