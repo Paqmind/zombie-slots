@@ -20,6 +20,8 @@ class Main extends Component {
       winningIcons: [],             // array of current winning icons
       isCoinsCounterOpen: false,    // show or hide coins counter after coins winning
       spinning: false,              // start/stop spin the icons
+      decreaseArrowPressed: false,  // helper for arrow pressing animation
+      increaseArrowPressed: false,  // helper for arrow pressing animation
       cols: [[], [], [], [], []]    // array of icons that are displayed on the screen
     }
   }
@@ -32,19 +34,19 @@ class Main extends Component {
       winningCoins: 0
     })
 
-    let cols = [                                // randomly generate new icons
-      makeColumn(this.icons, this.colLength),       // which will be displayed next
+    let cols = [
+      makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength)
     ],
-      winningParams = winningDeterminant(cols)  // check new icons position for winning combs
+      winningParams = winningDeterminant(cols)
 
     setTimeout(() => {
       this.setState({
         cols,
-        winningIcons: winningParams.icons       // display new icons on the screen
+        winningIcons: winningParams.icons
       })
     }, 1500)
 
@@ -56,16 +58,22 @@ class Main extends Component {
     }, 3500)
   }
 
-  increaseBet = () => {
-    this.state.bet >= this.maxBet
-      ? this.setState({bet: 1})
-      : this.setState({bet: this.state.bet + 1})
-  }
-
   decreaseBet = () => {
     this.state.bet <= this.minBet
-      ? this.setState({bet: 10})
-      : this.setState({bet: this.state.bet - 1})
+      ? this.setState({bet: 10, decreaseArrowPressed: true})
+      : this.setState({bet: this.state.bet - 1, decreaseArrowPressed: true})
+    setTimeout(() => {
+      this.setState({decreaseArrowPressed: false})
+    }, 100)
+  }
+
+  increaseBet = () => {
+    this.state.bet >= this.maxBet
+      ? this.setState({bet: 1, increaseArrowPressed: true})
+      : this.setState({bet: this.state.bet + 1, increaseArrowPressed: true})
+    setTimeout(() => {
+      this.setState({increaseArrowPressed: false})
+    }, 100)
   }
 
   countCoins = (currentWinQuantity) => {
