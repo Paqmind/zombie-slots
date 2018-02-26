@@ -7,9 +7,9 @@ const OptionalBar = (props) => {
     <div className="stats">
       <div className="title">BET</div>
       <div className="value">
-        <span><i className="arrow left"></i></span>
+        <span onClick={props.decrease}><i className="arrow left"></i></span>
         {bet}
-        <span><i className="arrow right"></i></span>
+        <span onClick={props.increase}><i className="arrow right"></i></span>
       </div>
     </div>
     <Button spin={props.spin} btnDisabled={spinning} />

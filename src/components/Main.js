@@ -11,6 +11,8 @@ class Main extends Component {
     super(props)
     this.icons = ['one','two','three','four','five','six','seven','eight']
     this.colLength = 3
+    this.maxBet = 10
+    this.minBet = 1
     this.state = {
       bet: 1,                       // current bet value
       totalCoins: 100,              // total number of coins per game
@@ -54,6 +56,20 @@ class Main extends Component {
     }, 3500)
   }
 
+  increaseBet = () => {
+    this.setState({bet: this.state.bet + 1})
+    if (this.state.bet >= this.maxBet) {
+      this.setState({bet: 1})
+    }
+  }
+
+  decreaseBet = () => {
+    this.setState({bet: this.state.bet - 1})
+    if (this.state.bet <= this.minBet) {
+      this.setState({bet: 10})
+    }
+  }
+
   countCoins = (currentWinQuantity) => {
     if (currentWinQuantity == 0) return
 
@@ -88,7 +104,11 @@ class Main extends Component {
       <div className="header">Zombie Reels</div>
       <div className={`slots ${spinning ? "spinning" : null}`}>
         <Slots state={this.state}/>
-        <OptionalBar spin={this.spin} state={this.state} />
+        <OptionalBar spin={this.spin}
+                     state={this.state}
+                     increase={this.increaseBet}
+                     decrease={this.decreaseBet}
+        />
       </div>
     </div>
   }
