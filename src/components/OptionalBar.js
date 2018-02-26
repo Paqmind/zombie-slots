@@ -6,7 +6,11 @@ const OptionalBar = (props) => {
   return <div className="optional-bar">
     <div className="stats">
       <div className="title">BET</div>
-      <div className="value">{bet}</div>
+      <div className="value">
+        <span><i className="arrow left"></i></span>
+        {bet}
+        <span><i className="arrow right"></i></span>
+      </div>
     </div>
     <Button spin={props.spin} btnDisabled={spinning} />
     <div className="stats">

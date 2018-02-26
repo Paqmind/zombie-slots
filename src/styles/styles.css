@@ -185,6 +185,7 @@ html {
 
 .stats {
   width: 200px;
+  height: 50px;
   color: #fff;
   cursor: default;
   text-align: center;
@@ -201,6 +202,25 @@ html {
 .value {
   padding-top: 5px;
   font-size: 1.5em;
+}
+
+i {
+  border: solid #fff;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-left: 10%;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 10%;
 }
 
 .slots.spinning .outer-col:nth-of-type(2) .col {
