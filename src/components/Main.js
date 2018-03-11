@@ -20,6 +20,7 @@ class Main extends Component {
       winningIcons: [],             // array of current winning icons
       isCoinsCounterOpen: false,    // show or hide coins counter after coins winning
       spinning: false,              // start/stop spin the icons
+      btnDisabled: false,           // enable/desable spin button
       decreaseArrowPressed: false,  // helper for arrow pressing animation
       increaseArrowPressed: false,  // helper for arrow pressing animation
       cols: [[], [], [], [], []]    // array of icons that are displayed on the screen
@@ -29,6 +30,7 @@ class Main extends Component {
   spin = () => {
     this.setState({
       spinning: true,
+      btnDisabled: true,
       totalCoins: this.state.totalCoins - this.state.bet,
       isCoinsCounterOpen: false,
       winningCoins: 0
@@ -53,7 +55,8 @@ class Main extends Component {
     setTimeout(() => {
       this.countCoins(winningParams.coins)
       this.setState({
-        spinning: false
+        spinning: false,
+        btnDisabled: false
       })
     }, 3500)
   }
