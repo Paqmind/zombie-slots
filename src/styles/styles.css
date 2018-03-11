@@ -104,6 +104,42 @@ html {
   animation: wiggle 0.4s linear infinite;
 }
 
+.show-coins-over-message {
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  left: 138px;
+  top: 100px;
+  color: #fff;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid darkgoldenrod;
+}
+
+.message {
+  background-color: transparent;
+  height: 50px;
+  font-size: 2.5em;
+}
+
+.try-again {
+  background-color: transparent;
+  margin-top: 0.5em;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  outline: none;
+  width: 150px;
+  height: 30px;
+}
+
+.hide-coins-over-message {
+  display: none;
+}
+
 .show-coins-counter {
   width: 250px;
   height: 50px;

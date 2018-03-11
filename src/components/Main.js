@@ -14,16 +14,17 @@ class Main extends Component {
     this.maxBet = 10
     this.minBet = 1
     this.state = {
-      bet: 1,                       // current bet value
-      totalCoins: 100,              // total number of coins per game
-      winningCoins: 0,              // the number of current winning coins
-      winningIcons: [],             // array of current winning icons
-      isCoinsCounterOpen: false,    // show or hide coins counter after coins winning
-      spinning: false,              // start/stop spin the icons
-      btnDisabled: false,           // enable/desable spin button
-      decreaseArrowPressed: false,  // helper for arrow pressing animation
-      increaseArrowPressed: false,  // helper for arrow pressing animation
-      cols: [[], [], [], [], []]    // array of icons that are displayed on the screen
+      bet: 1,                        // current bet value
+      totalCoins: 100,               // total number of coins per game
+      winningCoins: 0,               // the number of current winning coins
+      winningIcons: [],              // array of current winning icons
+      isCoinsCounterOpen: false,     // show or hide coins counter after coins winning
+      isCoinsOverMessageOpen: false, // showed when total coins number less than bet
+      spinning: false,               // start/stop spin the icons
+      btnDisabled: false,            // enable/desable spin button
+      decreaseArrowPressed: false,   // helper for arrow pressing animation
+      increaseArrowPressed: false,   // helper for arrow pressing animation
+      cols: [[], [], [], [], []]     // array of icons that are displayed on the screen
     }
   }
 
@@ -98,7 +99,9 @@ class Main extends Component {
 
   onCoinsOver = () => {
     let {totalCoins} = this.state
-    alert("coins over")
+    this.setState({
+      isCoinsOverMessageOpen: true
+    })
     return totalCoins
   }
 

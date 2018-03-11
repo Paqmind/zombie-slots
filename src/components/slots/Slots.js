@@ -1,14 +1,17 @@
 import React from 'react'
+import CoinsOverMessage from '../CoinsOverMessage'
+import CoinsCounter from '../CoinsCounter'
 import colsTemplate from './colsTemplate'
 import svgClassNames from './svgClassNames'
 
 const Slots = (props) => {
-  let { cols, winningIcons, winningCoins, isCoinsCounterOpen } = props.state
+  let {cols, winningIcons, winningCoins, isCoinsCounterOpen, isCoinsOverMessageOpen} = props.state
   let displayedCols = cols.map(col => col.concat(colsTemplate.concat(col)))
 
   return <div className="wrapper">
-    <div className={isCoinsCounterOpen ? "show-coins-counter" : "hide-coins-counter"}>
-      <div className="coins-amount">{winningCoins}</div>
+    <div className="coins-properties">
+      <CoinsOverMessage isOpen={isCoinsOverMessageOpen} />
+      <CoinsCounter isOpen={isCoinsCounterOpen} coins={winningCoins} />
     </div>
     {
       displayedCols.map((col, i) => {
