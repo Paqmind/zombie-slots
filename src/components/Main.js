@@ -28,26 +28,27 @@ class Main extends Component {
   }
 
   spin = () => {
+    let {totalCoins, bet, cols} = this.state
     this.setState({
-      spinning: true,
-      btnDisabled: true,
-      totalCoins: this.state.totalCoins - this.state.bet,
+      spinning: totalCoins >= bet,
+      btnDisabled: totalCoins >= bet,
+      totalCoins: totalCoins >= bet ? totalCoins - bet : this.onCoinsOver(),
       isCoinsCounterOpen: false,
       winningCoins: 0
     })
 
-    let cols = [
+    let newCols = [
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength),
       makeColumn(this.icons, this.colLength)
     ],
-      winningParams = winningDeterminant(cols)
+      winningParams = totalCoins >= bet ? winningDeterminant(newCols) : null
 
     setTimeout(() => {
       this.setState({
-        cols,
+        cols: totalCoins >= bet ? newCols : cols,
         winningIcons: winningParams.icons
       })
     }, 1500)
@@ -80,7 +81,7 @@ class Main extends Component {
   }
 
   countCoins = (currentWinQuantity) => {
-    if (currentWinQuantity == 0) return
+    if (!currentWinQuantity) return
 
     this.setState({isCoinsCounterOpen: true})
     let interval = setInterval(() => {
@@ -93,6 +94,12 @@ class Main extends Component {
       clearInterval(interval)
 
     }, 60)
+  }
+
+  onCoinsOver = () => {
+    let {totalCoins} = this.state
+    alert("coins over")
+    return totalCoins
   }
 
   componentWillMount() {
