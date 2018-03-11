@@ -11,20 +11,21 @@ class Main extends Component {
     super(props)
     this.icons = ['one','two','three','four','five','six','seven','eight']
     this.colLength = 3
+    this.startCoinsNumber = 100
     this.maxBet = 10
     this.minBet = 1
     this.state = {
-      bet: 1,                        // current bet value
-      totalCoins: 100,               // total number of coins per game
-      winningCoins: 0,               // the number of current winning coins
-      winningIcons: [],              // array of current winning icons
-      isCoinsCounterOpen: false,     // show or hide coins counter after coins winning
-      isCoinsOverMessageOpen: false, // showed when total coins number less than bet
-      spinning: false,               // start/stop spin the icons
-      btnDisabled: false,            // enable/desable spin button
-      decreaseArrowPressed: false,   // helper for arrow pressing animation
-      increaseArrowPressed: false,   // helper for arrow pressing animation
-      cols: [[], [], [], [], []]     // array of icons that are displayed on the screen
+      bet: 1,                            // current bet value
+      totalCoins: this.startCoinsNumber, // total number of coins per game
+      winningCoins: 0,                   // the number of current winning coins
+    winningIcons: [],                    // array of current winning icons
+      isCoinsCounterOpen: false,         // show or hide coins counter after coins winning
+      isCoinsOverMessageOpen: false,     // showed when total coins number less than bet
+      spinning: false,                   // start/stop spin the icons
+      btnDisabled: false,                // enable/desable spin button
+      decreaseArrowPressed: false,       // helper for arrow pressing animation
+      increaseArrowPressed: false,       // helper for arrow pressing animation
+      cols: [[], [], [], [], []]         // array of icons that are displayed on the screen
     }
   }
 
@@ -105,6 +106,13 @@ class Main extends Component {
     return totalCoins
   }
 
+  onTryAgainClick = () => {
+    this.setState({
+      isCoinsOverMessageOpen: false,
+      totalCoins: this.startCoinsNumber
+    })
+  }
+
   componentWillMount() {
     this.setState({
       cols: [
@@ -122,7 +130,7 @@ class Main extends Component {
     return <div className="container">
       <div className="header">Zombie Reels</div>
       <div className={`slots ${spinning ? "spinning" : null}`}>
-        <Slots state={this.state}/>
+        <Slots state={this.state} onClick={this.onTryAgainClick} />
         <OptionalBar spin={this.spin}
                      state={this.state}
                      increase={this.increaseBet}

@@ -10,7 +10,7 @@ const Slots = (props) => {
 
   return <div className="wrapper">
     <div className="coins-properties">
-      <CoinsOverMessage isOpen={isCoinsOverMessageOpen} />
+      <CoinsOverMessage isOpen={isCoinsOverMessageOpen} clickHandler={props.onClick} />
       <CoinsCounter isOpen={isCoinsCounterOpen} coins={winningCoins} />
     </div>
     {
